@@ -23,7 +23,7 @@ impl Map {
     }
 
     fn in_bounds(&self, point: Point) -> bool {
-        (point.x <= SCREEN_WIDTH && point.x >= 0) && (point.y <= SCREEN_HEIGHT && point.y >= 0)
+        (point.x < SCREEN_WIDTH && point.x >= 0) && (point.y < SCREEN_HEIGHT && point.y >= 0)
     }
 
     pub fn can_enter_tile(&self, point: Point) -> bool {
