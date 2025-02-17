@@ -1,3 +1,5 @@
+use std::usize;
+
 //This file contains all the logic for the map functionality.
 use crate::prelude::*;
 
@@ -26,6 +28,14 @@ impl Map {
 
     fn can_enter(&self, point: Point) -> bool {
         self.in_bounds(point) && self.tiles[map_idx(point.x, point.y)] == TileType::Floor
+    }
+
+    fn try_idx(&self, point: Point) -> Option<usize> {
+        if !self.in_bounds(point) {
+            None
+        } else {
+            Some(map_idx(point.x, point.y))
+        }
     }
 
     pub fn render(&self, ctx: &mut BTerm) {
