@@ -21,6 +21,10 @@ impl Map {
     }
 }
 
+pub fn map_idx(x: i32, y: i32) -> usize {
+    ((y * SCREEN_WIDTH) + x) as usize
+}
+
 pub fn hello_map() {
     println!("Hello map 🗺️");
     println!("This is the total number of tiles needed: {} 🚀", NUM_TILES);
