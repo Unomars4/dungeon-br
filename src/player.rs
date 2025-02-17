@@ -5,10 +5,8 @@ pub struct Player {
 }
 
 impl Player {
-    pub fn new() -> Self {
-        Self {
-            pos: Point::new(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2),
-        }
+    pub fn new(point: Point) -> Self {
+        Self { pos: point }
     }
 
     pub fn update(&mut self, ctx: &mut BTerm, map: &Map) {
