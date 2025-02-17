@@ -9,7 +9,6 @@ const NUM_TILES: usize = (SCREEN_WIDTH * SCREEN_HEIGHT) as usize;
 pub enum TileType {
     Wall,
     Floor,
-    Player,
 }
 
 pub struct Map {

@@ -1,6 +1,6 @@
 use crate::prelude::*;
 
-struct Player {
+pub struct Player {
     pos: Point,
 }
 
