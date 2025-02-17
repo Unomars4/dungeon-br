@@ -9,6 +9,10 @@ mod prelude {
 
 use prelude::*;
 
+struct State {
+    map: Map,
+}
+
 fn main() {
     println!("Let's begin...😛");
     hello_map();
