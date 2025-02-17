@@ -24,6 +24,10 @@ impl Map {
         (point.x <= SCREEN_WIDTH && point.x >= 0) && (point.y <= SCREEN_HEIGHT && point.y >= 0)
     }
 
+    fn can_enter(&self, point: Point) -> bool {
+        self.in_bounds(point) && self.tiles[map_idx(point.x, point.y)] == TileType::Floor
+    }
+
     pub fn render(&self, ctx: &mut BTerm) {
         for y in 0..SCREEN_HEIGHT {
             for x in 0..SCREEN_WIDTH {
