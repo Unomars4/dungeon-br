@@ -20,6 +20,10 @@ impl Map {
         }
     }
 
+    fn in_bounds(&self, point: Point) -> bool {
+        (point.x <= SCREEN_WIDTH || point.x >= 0) && (point.y <= SCREEN_HEIGHT || point.y >= 0)
+    }
+
     pub fn render(&self, ctx: &mut BTerm) {
         for y in 0..SCREEN_HEIGHT {
             for x in 0..SCREEN_WIDTH {
