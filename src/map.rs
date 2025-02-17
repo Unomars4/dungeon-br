@@ -3,6 +3,12 @@ use crate::prelude::*;
 
 const NUM_TILES: usize = (SCREEN_WIDTH * SCREEN_HEIGHT) as usize;
 
+#[derive(Clone, Copy, PartialEq)]
+pub enum TileType {
+    Wall,
+    Floor,
+}
+
 pub fn hello_map() {
     println!("Hello map 🗺️");
     println!("This is the total number of tiles needed: {} 🚀", NUM_TILES);
