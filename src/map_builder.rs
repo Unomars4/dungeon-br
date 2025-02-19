@@ -87,10 +87,10 @@ impl MapBuilder {
             let current_room = room.center();
 
             if rng.range(0, 2) == 1 {
-                self.apply_horizontal_tunnels(prev_room.x, current_room.x, current_room.y);
+                self.apply_horizontal_tunnels(prev_room.x, current_room.x, prev_room.y);
                 self.apply_vertical_tunnels(prev_room.y, current_room.y, current_room.x);
             } else {
-                self.apply_vertical_tunnels(prev_room.y, current_room.y, current_room.x);
+                self.apply_vertical_tunnels(prev_room.y, current_room.y, prev_room.x);
                 self.apply_horizontal_tunnels(prev_room.x, current_room.x, current_room.y);
             }
         }
