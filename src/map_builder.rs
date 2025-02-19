@@ -64,4 +64,22 @@ impl MapBuilder {
             }
         }
     }
+
+    fn build_corridors(&mut self, rng: &mut RandomNumberGenerator) {
+        let mut rooms = self.rooms.clone();
+        rooms.sort_by(|a, b| a.center().x.cmp(&b.center().x));
+
+        for (i, room) in rooms.iter().enumerate().skip(1) {
+            let prev_room = rooms[i - 1].center();
+            let current_room = room.center();
+
+            if rng.range(0, 2) == 1 {
+                self.apply_vertical_tunnels(prev_room.y, current_room.y, current_room.x);
+                self.apply_horizontal_tunnels(prev_room.x, current_room.x, current_room.y);
+            } else {
+                self.apply_horizontal_tunnels(prev_room.x, current_room.x, current_room.y);
+                self.apply_vertical_tunnels(prev_room.y, current_room.y, current_room.x);
+            }
+        }
+    }
 }
