@@ -30,7 +30,7 @@ impl Map {
         self.in_bounds(point) && self.tiles[map_idx(point.x, point.y)] == TileType::Floor
     }
 
-    fn try_idx(&self, point: Point) -> Option<usize> {
+    pub fn try_idx(&self, point: Point) -> Option<usize> {
         if !self.in_bounds(point) {
             None
         } else {

@@ -44,4 +44,14 @@ impl MapBuilder {
             }
         }
     }
+
+    fn apply_vertical_tunnels(&mut self, y1: i32, y2: i32, x: i32) {
+        use std::cmp::{max, min};
+
+        for y in min(y1, y2)..=max(y1, y2) {
+            if let Some(idx) = self.map.try_idx(Point::new(x, y)) {
+                self.map.tiles[idx as usize] = TileType::Floor;
+            }
+        }
+    }
 }
