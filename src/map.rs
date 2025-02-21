@@ -42,24 +42,26 @@ impl Map {
         ctx.set_active_console(0);
         for y in camera.top_y..camera.bottom_y {
             for x in camera.left_x..camera.right_x {
-                let idx = map_idx(x, y);
+                if self.in_bounds(Point::new(x, y)) {
+                    let idx = map_idx(x, y);
 
-                match self.tiles[idx] {
-                    TileType::Floor => ctx.set(
-                        x - camera.left_x,
-                        y - camera.top_y,
-                        YELLOW,
-                        BLACK,
-                        to_cp437('.'),
-                    ),
-                    TileType::Wall => {
-                        ctx.set(
+                    match self.tiles[idx] {
+                        TileType::Floor => ctx.set(
                             x - camera.left_x,
                             y - camera.top_y,
-                            GREEN,
+                            YELLOW,
                             BLACK,
-                            to_cp437('#'),
-                        );
+                            to_cp437('.'),
+                        ),
+                        TileType::Wall => {
+                            ctx.set(
+                                x - camera.left_x,
+                                y - camera.top_y,
+                                GREEN,
+                                BLACK,
+                                to_cp437('#'),
+                            );
+                        }
                     }
                 }
             }
