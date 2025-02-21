@@ -1,3 +1,4 @@
+mod camera;
 mod map;
 mod map_builder;
 mod player;
@@ -11,6 +12,7 @@ mod prelude {
     pub use crate::map::*;
     pub use crate::map_builder::*;
     pub use crate::player::*;
+    pub use crate::camera::*
 }
 
 use prelude::*;
