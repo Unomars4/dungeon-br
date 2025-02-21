@@ -19,7 +19,7 @@ impl Player {
                 _ => Point::zero(),
             };
             let new_pos = self.pos + change_in_pos;
-            if map.can_enter_tile(self.pos) {
+            if map.can_enter_tile(new_pos) {
                 self.pos = new_pos;
                 camera.on_player_move(new_pos);
             }
