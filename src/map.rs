@@ -38,9 +38,9 @@ impl Map {
         }
     }
 
-    pub fn render(&self, ctx: &mut BTerm) {
-        for y in 0..SCREEN_HEIGHT {
-            for x in 0..SCREEN_WIDTH {
+    pub fn render(&self, ctx: &mut BTerm, camera: &Camera) {
+        for y in camera.top_y..camera.bottom_y {
+            for x in camera.left_x..camera.right_x {
                 let idx = map_idx(x, y);
 
                 match self.tiles[idx] {
