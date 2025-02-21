@@ -44,12 +44,11 @@ impl Map {
             for x in camera.left_x..camera.right_x {
                 if self.in_bounds(Point::new(x, y)) {
                     let idx = map_idx(x, y);
-
                     match self.tiles[idx] {
                         TileType::Floor => ctx.set(
                             x - camera.left_x,
                             y - camera.top_y,
-                            YELLOW,
+                            WHITE,
                             BLACK,
                             to_cp437('.'),
                         ),
@@ -57,7 +56,7 @@ impl Map {
                             ctx.set(
                                 x - camera.left_x,
                                 y - camera.top_y,
-                                GREEN,
+                                WHITE,
                                 BLACK,
                                 to_cp437('#'),
                             );

@@ -30,8 +30,8 @@ impl Player {
         ctx.set_active_console(1);
         ctx.set(
             self.pos.x - camera.left_x,
-            self.pos.y - camera.bottom_y,
-            RED,
+            self.pos.y - camera.top_y,
+            WHITE,
             BLACK,
             to_cp437('@'),
         );
