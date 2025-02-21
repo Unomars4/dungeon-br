@@ -39,14 +39,27 @@ impl Map {
     }
 
     pub fn render(&self, ctx: &mut BTerm, camera: &Camera) {
+        ctx.set_active_console(0);
         for y in camera.top_y..camera.bottom_y {
             for x in camera.left_x..camera.right_x {
                 let idx = map_idx(x, y);
 
                 match self.tiles[idx] {
-                    TileType::Floor => ctx.set(x, y, YELLOW, BLACK, to_cp437('.')),
+                    TileType::Floor => ctx.set(
+                        x - camera.left_x,
+                        y - camera.top_y,
+                        YELLOW,
+                        BLACK,
+                        to_cp437('.'),
+                    ),
                     TileType::Wall => {
-                        ctx.set(x, y, GREEN, BLACK, to_cp437('#'));
+                        ctx.set(
+                            x - camera.left_x,
+                            y - camera.top_y,
+                            GREEN,
+                            BLACK,
+                            to_cp437('#'),
+                        );
                     }
                 }
             }
