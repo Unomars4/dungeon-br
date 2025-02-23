@@ -14,12 +14,13 @@ mod prelude {
     use legion::*;
 }
 
+use legion::{Resources, Schedule, World};
 use prelude::*;
 
 struct State {
-    map: Map,
-    player: Player,
-    camera: Camera,
+    ecs: World,
+    resources: Resources,
+    systems: Schedule,
 }
 
 impl State {
