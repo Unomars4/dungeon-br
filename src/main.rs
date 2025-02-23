@@ -14,7 +14,7 @@ mod prelude {
     use legion::*;
 }
 
-use legion::{Resources, Schedule, World};
+use legion::{systems::Builder, Resources, Schedule, World};
 use prelude::*;
 
 struct State {
@@ -25,12 +25,16 @@ struct State {
 
 impl State {
     fn new() -> Self {
+        let mut ecs = World::default();
+        let mut resources = Resources::default();
         let mut rng: RandomNumberGenerator = RandomNumberGenerator::new();
         let mb: MapBuilder = MapBuilder::new(&mut rng);
+        resources.insert(mb.map);
+        resources.insert(Camera::new(mb.player_start));
         Self {
-            map: mb.map,
-            player: Player::new(mb.player_start),
-            camera: Camera::new(mb.player_start),
+            ecs,
+            resources,
+            systems: build_scheduler(),
         }
     }
 }
