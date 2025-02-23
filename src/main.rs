@@ -14,7 +14,7 @@ mod prelude {
     use legion::*;
 }
 
-use legion::{systems::Builder, Resources, Schedule, World};
+use legion::*;
 use prelude::*;
 
 struct State {
