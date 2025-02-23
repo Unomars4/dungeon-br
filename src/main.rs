@@ -2,6 +2,7 @@ mod camera;
 mod component;
 mod map;
 mod map_builder;
+mod spawner;
 
 mod prelude {
     pub use bracket_lib::prelude::*;
@@ -13,6 +14,7 @@ mod prelude {
     pub use crate::component::*;
     pub use crate::map::*;
     pub use crate::map_builder::*;
+    pub use crate::spawner::*;
     pub use legion::*;
 }
 
