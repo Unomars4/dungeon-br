@@ -22,7 +22,7 @@ impl Map {
         }
     }
 
-    fn in_bounds(&self, point: Point) -> bool {
+    pub fn in_bounds(&self, point: Point) -> bool {
         (point.x < SCREEN_WIDTH && point.x >= 0) && (point.y < SCREEN_HEIGHT && point.y >= 0)
     }
 
