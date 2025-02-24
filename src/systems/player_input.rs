@@ -4,9 +4,9 @@ use crate::prelude::*;
 #[write_component(Point)]
 #[read_component(Player)]
 fn player_input(
-    &mut ecs: World,
-    #[resource] map: Map,
+    ecs: &mut SubWorld,
+    #[resource] map: &Map,
     #[resource] key: &Option<VirtualKeyCode>,
-    #[resource] camera: Camera,
+    #[resource] camera: &mut Camera,
 ) {
 }
