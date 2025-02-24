@@ -1,5 +1,4 @@
 use crate::prelude::*;
-use crate::world::SubWorld;
 
 #[system]
 #[write_component(Point)]

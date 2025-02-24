@@ -17,6 +17,7 @@ mod prelude {
     pub use crate::map_builder::*;
     pub use crate::spawner::*;
     pub use crate::systems::*;
+    pub use legion::world::SubWorld;
     pub use legion::*;
 }
 
@@ -60,7 +61,7 @@ impl GameState for State {
 fn main() -> BError {
     println!("Launching...😛🚀");
 
-    let context = BTermBuilder::simple80x50()
+    let context = BTermBuilder::new()
         .with_title("Dungeon 🫣")
         .with_fps_cap(30.0)
         .with_dimensions(DISPLAY_WIDTH, DISPLAY_HEIGHT)

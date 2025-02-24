@@ -86,12 +86,13 @@ dependencies = [
 
 [[package]]
 name = "bracket-color"
-version = "0.8.7"
+version = "0.8.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "7333827cf727ceb302cc4f638cc8befc87f5f1423873255d94cc0a24009e940a"
+checksum = "3c1d1b160817fb74eebedccd678055cd688d1a73dc1a14519fa30ff4c9a5bdee"
 dependencies = [
+ "byteorder",
  "lazy_static",
- "parking_lot 0.12.3",
+ "parking_lot 0.11.2",
 ]
 
 [[package]]
@@ -115,9 +116,9 @@ dependencies = [
 
 [[package]]
 name = "bracket-lib"
-version = "0.8.7"
+version = "0.8.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "43bbe13e39628e7f73673737c825001494dee7329cee8ee79dfeaa7cfd136dbf"
+checksum = "a0fb005e908ce2e553277e554c32ab06d8b12bea38660da98f2e77e662dea617"
 dependencies = [
  "bracket-algorithm-traits",
  "bracket-color",
