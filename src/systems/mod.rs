@@ -2,7 +2,7 @@ mod entity_render;
 mod map_render;
 mod player_input;
 
-use crate::prelude::*;
+pub use crate::prelude::*;
 
 pub fn build_scheduler() -> Schedule {
     Schedule::builder()

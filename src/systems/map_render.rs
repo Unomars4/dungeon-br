@@ -1,4 +1,5 @@
 //System that handles all the map rendering
+use crate::prelude::world::SubWorld;
 use crate::prelude::*;
 
 #[system]
@@ -21,4 +22,3 @@ pub fn map_render(#[resource] map: &Map, #[resource] camera: &Camera) {
     }
     draw_batch.submit(0).expect("Batch error")
 }
-
