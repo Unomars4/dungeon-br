@@ -1,5 +1,5 @@
 use crate::prelude::*;
-use legion::world::SubWorld;
+use crate::world::SubWorld;
 
 #[system]
 #[write_component(Point)]

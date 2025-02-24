@@ -1,5 +1,6 @@
 //System renders all entities with Point and Render components
 use crate::prelude::*;
+use crate::world::SubWorld;
 
 #[system]
 #[read_component(Point)]

@@ -1,6 +1,6 @@
 //System that handles all the map rendering
 use crate::prelude::*;
-use legion::world::SubWorld;
+use crate::world::SubWorld;
 
 #[system]
 pub fn map_render(#[resource] map: &Map, #[resource] camera: &Camera) {
