@@ -1,5 +1,5 @@
 //System that handles all the map rendering
-use crate::{camera, prelude::*};
+use crate::prelude::*;
 
 #[system]
 pub fn map_render(#[resource] map: &Map, #[resource] camera: &Camera) {
@@ -15,7 +15,7 @@ pub fn map_render(#[resource] map: &Map, #[resource] camera: &Camera) {
                     TileType::Floor => to_cp437('.'),
                     TileType::Wall => to_cp437('#'),
                 };
-                draw_batch.set(pt, ColorPair::new(WHITE, BLACK), glyph);
+                draw_batch.set(pt - offset, ColorPair::new(WHITE, BLACK), glyph);
             }
         }
     }
