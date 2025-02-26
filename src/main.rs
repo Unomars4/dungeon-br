@@ -45,6 +45,7 @@ impl State {
             .for_each(|r| spawn_monster(&mut ecs, r, &mut rng));
         resources.insert(mb.map);
         resources.insert(Camera::new(mb.player_start));
+        resources.insert(TurnState::AwaitingInput);
         Self {
             ecs,
             resources,
