@@ -1,1 +1,29 @@
+use legion::systems::CommandBuffer;
+
 use crate::prelude::*;
+
+#[system(for_each)]
+#[read_component(Player)]
+pub fn movement(
+    entity: &Entity,
+    wants_move: &WantsToMove,
+    #[resource] map: &Map,
+    #[resource] camera: &mut Camera,
+    ecs: &mut SubWorld,
+    command: &mut CommandBuffer,
+) {
+    if map.can_enter_tile(wants_move.direction) {
+        command.add_component(wants_move.entity, wants_move.direction);
+
+        if ecs
+            .entry_ref(wants_move.entity)
+            .unwrap()
+            .get_component::<Player>()
+            .is_ok()
+        {
+            camera.on_player_move(wants_move.direction);
+        }
+    }
+
+    command.remove(*entity);
+}
