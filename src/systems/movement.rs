@@ -12,8 +12,8 @@ pub fn movement(
     ecs: &mut SubWorld,
     command: &mut CommandBuffer,
 ) {
-    if map.can_enter_tile(wants_move.direction) {
-        command.add_component(wants_move.entity, wants_move.direction);
+    if map.can_enter_tile(wants_move.destination) {
+        command.add_component(wants_move.entity, wants_move.destination);
 
         if ecs
             .entry_ref(wants_move.entity)
@@ -21,7 +21,7 @@ pub fn movement(
             .get_component::<Player>()
             .is_ok()
         {
-            camera.on_player_move(wants_move.direction);
+            camera.on_player_move(wants_move.destination);
         }
     }
 

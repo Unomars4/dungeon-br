@@ -19,5 +19,5 @@ pub struct MovingRandomly;
 #[derive(Debug, Clone, PartialEq, Copy)]
 pub struct WantsToMove {
     pub entity: Entity,
-    pub direction: Point,
+    pub destination: Point,
 }
