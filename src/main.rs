@@ -65,12 +65,19 @@ impl GameState for State {
         ctx.set_active_console(1);
         ctx.cls();
         self.resources.insert(ctx.key);
-        self.input_systems
-            .execute(&mut self.ecs, &mut self.resources);
-        self.player_systems
-            .execute(&mut self.ecs, &mut self.resources);
-        self.monster_systems
-            .execute(&mut self.ecs, &mut self.resources);
+        let current_state = self.resources.get::<TurnState>().unwrap().clone();
+
+        match current_state {
+            TurnState::AwaitingInput => self
+                .input_systems
+                .execute(&mut self.ecs, &mut self.resources),
+            TurnState::PlayerTurn => self
+                .player_systems
+                .execute(&mut self.ecs, &mut self.resources),
+            TurnState::MonsterTurn => self
+                .monster_systems
+                .execute(&mut self.ecs, &mut self.resources),
+        }
         render_draw_buffer(ctx).expect("Render error")
     }
 }
