@@ -33,6 +33,8 @@ pub fn build_monster_scheduler() -> Schedule {
     Schedule::builder()
         .add_system(random_movement::random_move_system())
         .flush()
+        .add_system(movement::movement_system())
+        .flush()
         .add_system(collision::collisions_system())
         .flush()
         .add_system(map_render::map_render_system())
