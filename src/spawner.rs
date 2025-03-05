@@ -20,6 +20,10 @@ fn goblin() -> (i32, String, FontCharType) {
     (1, "Goblin".to_string(), to_cp437('g'))
 }
 
+fn orc() -> (i32, String, FontCharType) {
+    (2, "Orc".to_string(), to_cp437('o'))
+}
+
 pub fn spawn_monster(ecs: &mut World, pos: Point, rng: &mut RandomNumberGenerator) {
     ecs.push((
         Enemy,
