@@ -6,7 +6,7 @@ use crate::prelude::*;
 pub fn hud(ecs: &SubWorld) {
     let mut healh_query = <&Health>::query().filter(component::<Player>());
 
-    let mut player_health = healh_query.iter(ecs).nth(0).unwrap();
+    let player_health = healh_query.iter(ecs).nth(0).unwrap();
 
     let mut draw_batch = DrawBatch::new();
     draw_batch.target(2);
