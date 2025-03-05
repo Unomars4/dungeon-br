@@ -16,6 +16,10 @@ pub fn spawn_player(ecs: &mut World, pos: Point) {
     ));
 }
 
+fn goblin() -> (i32, String, FontCharType) {
+    (1, "Goblin".to_string(), to_cp437('g'))
+}
+
 pub fn spawn_monster(ecs: &mut World, pos: Point, rng: &mut RandomNumberGenerator) {
     ecs.push((
         Enemy,
