@@ -6,6 +6,7 @@ mod map_render;
 mod movement;
 mod player_input;
 mod random_movement;
+mod tooltips;
 
 use crate::prelude::*;
 
