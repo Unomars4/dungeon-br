@@ -1,4 +1,3 @@
-mod collision;
 mod end_turn;
 mod entity_render;
 mod hud;
@@ -25,8 +24,6 @@ pub fn build_player_scheduler() -> Schedule {
     Schedule::builder()
         .add_system(movement::movement_system())
         .flush()
-        .add_system(collision::collisions_system())
-        .flush()
         .add_system(map_render::map_render_system())
         .add_system(entity_render::entity_render_system())
         .add_system(hud::hud_system())
@@ -39,8 +36,6 @@ pub fn build_monster_scheduler() -> Schedule {
         .add_system(random_movement::random_move_system())
         .flush()
         .add_system(movement::movement_system())
-        .flush()
-        .add_system(collision::collisions_system())
         .flush()
         .add_system(map_render::map_render_system())
         .add_system(entity_render::entity_render_system())
