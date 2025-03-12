@@ -53,6 +53,8 @@ impl Map {
     }
 }
 
+impl BaseMap for Map {}
+
 impl Algorithm2D for Map {
     fn dimensions(&self) -> Point {
         Point::new(SCREEN_WIDTH, SCREEN_HEIGHT)
