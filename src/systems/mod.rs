@@ -39,6 +39,7 @@ pub fn build_monster_scheduler() -> Schedule {
     Schedule::builder()
         .add_system(random_movement::random_move_system())
         .flush()
+        .add_system(chasing::chasing_system())
         .add_system(combat::combat_system())
         .flush()
         .add_system(movement::movement_system())
