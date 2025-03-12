@@ -37,6 +37,20 @@ impl Map {
             Some(map_idx(point.x, point.y))
         }
     }
+
+    fn valid_exit(&self, loc: Point, delta: Point) -> Option<usize> {
+        let destination = loc + delta;
+        if self.in_bounds(destination) {
+            if self.can_enter_tile(destination) {
+                let idx = self.point2d_to_index(destination);
+                Some(idx)
+            } else {
+                None
+            }
+        } else {
+            None
+        }
+    }
 }
 
 impl Algorithm2D for Map {
