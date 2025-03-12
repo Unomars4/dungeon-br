@@ -9,6 +9,7 @@ pub struct MapBuilder {
     pub map: Map,
     pub rooms: Vec<Rect>,
     pub player_start: Point,
+    pub amulet_start: Point,
 }
 
 impl MapBuilder {
