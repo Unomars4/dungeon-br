@@ -39,3 +39,6 @@ pub struct WantsToAttack {
 
 #[derive(Debug, Clone, PartialEq, Copy)]
 pub struct ChasingPlayer;
+
+#[derive(Debug, Clone, PartialEq, Copy)]
+struct Item;
