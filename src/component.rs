@@ -42,3 +42,6 @@ pub struct ChasingPlayer;
 
 #[derive(Debug, Clone, PartialEq, Copy)]
 struct Item;
+
+#[derive(Debug, Clone, PartialEq, Copy)]
+struct AmuletOfYala;
