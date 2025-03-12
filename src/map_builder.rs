@@ -18,6 +18,7 @@ impl MapBuilder {
             map: Map::new(),
             rooms: Vec::new(),
             player_start: Point::zero(),
+            amulet_start: Point::zero(),
         };
         mb.fill(TileType::Wall);
         mb.build_random_rooms(rng);
