@@ -152,6 +152,7 @@ impl GameState for State {
                 .monster_systems
                 .execute(&mut self.ecs, &mut self.resources),
             TurnState::GameOver => self.game_over(ctx),
+            TurnState::Victory => self.victory(ctx),
         }
         render_draw_buffer(ctx).expect("Render error")
     }
