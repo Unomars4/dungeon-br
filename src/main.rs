@@ -100,6 +100,8 @@ impl State {
             self.resources.insert(TurnState::AwaitingInput);
         }
     }
+
+    fn victory(&mut self, ctx: &mut BTerm) {}
 }
 
 impl GameState for State {
