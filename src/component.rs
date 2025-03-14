@@ -1,3 +1,5 @@
+use std::collections::HashSet;
+
 //All available components
 pub use crate::prelude::*;
 
@@ -45,3 +47,10 @@ pub struct Item;
 
 #[derive(Debug, Clone, PartialEq, Copy)]
 pub struct AmuletOfYala;
+
+#[derive(Debug, Clone, PartialEq)]
+pub struct FieldOfView {
+    pub visible_tiles: HashSet<Point>,
+    pub radius: i32,
+    pub is_dirty: bool,
+}
