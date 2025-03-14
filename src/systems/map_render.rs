@@ -20,7 +20,7 @@ pub fn map_render(ecs: &SubWorld, #[resource] map: &Map, #[resource] camera: &Ca
                 let tint = if player_fov.visible_tiles.contains(&pt) {
                     WHITE
                 } else {
-                    GREY
+                    DARK_GREY
                 };
                 match map.tiles[idx] {
                     TileType::Floor => {
