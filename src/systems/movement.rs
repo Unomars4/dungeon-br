@@ -13,7 +13,6 @@ pub fn movement(
     ecs: &mut SubWorld,
     command: &mut CommandBuffer,
 ) {
-    let fov = <&FieldOfView>::query();
     if map.can_enter_tile(wants_move.destination) {
         command.add_component(wants_move.entity, wants_move.destination);
 
