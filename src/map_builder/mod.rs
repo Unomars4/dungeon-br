@@ -1,4 +1,5 @@
 // Handles all the map builder logic
+mod empty;
 use crate::prelude::*;
 
 trait MapArchitect {
