@@ -2,6 +2,7 @@
 mod automata;
 mod drunkard;
 mod empty;
+mod prefab;
 mod room;
 
 use crate::prelude::*;
