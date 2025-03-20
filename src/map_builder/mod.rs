@@ -1,6 +1,8 @@
 // Handles all the map builder logic
 mod empty;
+
 use crate::prelude::*;
+use empty::EmptyArchitect;
 
 trait MapArchitect {
     fn new(&mut self, rng: &mut RandomNumberGenerator) -> MapBuilder;
@@ -18,19 +20,8 @@ pub struct MapBuilder {
 
 impl MapBuilder {
     pub fn new(rng: &mut RandomNumberGenerator) -> Self {
-        let mut mb = MapBuilder {
-            map: Map::new(),
-            rooms: Vec::new(),
-            player_start: Point::zero(),
-            amulet_start: Point::zero(),
-            monster_spawns: Vec::new(),
-        };
-        mb.fill(TileType::Wall);
-        mb.build_random_rooms(rng);
-        mb.build_corridors(rng);
-        mb.player_start = mb.rooms[0].center();
-        mb.amulet_start = mb.find_most_distant();
-        mb
+        let mut architect = EmptyArchitect {};
+        architect.new(rng)
     }
 
     fn fill(&mut self, tile: TileType) {
