@@ -15,4 +15,15 @@ impl MapArchitect for AutomataArchitect {
 
         mb
     }
+
+    fn random_noise(&mut self, rng: &mut RandomNumberGenerator, map: &mut Map) {
+        map.tiles.iter_mut().for_each(|t| {
+            let roll = rng.range(0, 100);
+            if roll > 55 {
+                *t = TileType::Floor
+            } else {
+                *t = TileType::Wall
+            }
+        });
+    }
 }
