@@ -26,4 +26,16 @@ impl MapArchitect for AutomataArchitect {
             }
         });
     }
+
+    fn count_neighbors(&self, x: i32, y: i32, map: &Map) -> usize {
+        let mut neighbors = 0;
+        for iy in -1..=1 {
+            for ix in -1..=1 {
+                if !(ix == 0 && iy == 0) && map.tiles[map_idx(x + ix, y + iy)] == TileType::Wall {
+                    neighbors += 1;
+                }
+            }
+        }
+        neighbors
+    }
 }
