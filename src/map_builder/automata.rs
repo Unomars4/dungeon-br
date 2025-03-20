@@ -12,7 +12,13 @@ impl MapArchitect for AutomataArchitect {
             amulet_start: Point::zero(),
             monster_spawns: Vec::new(),
         };
-
+        self.random_noise(rng, &mut mb.map);
+        for _ in 0..10 {
+            self.iteration(&mut mb.map);
+        }
+        mb.player_start = self.find_start(&mb.map);
+        mb.monster_spawns = mb.spawn_monsters(&mb.player_start, rng);
+        mb.amulet_start = mb.find_most_distant();
         mb
     }
 }
