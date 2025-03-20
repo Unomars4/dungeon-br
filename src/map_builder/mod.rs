@@ -4,6 +4,7 @@ mod empty;
 mod room;
 
 use crate::prelude::*;
+use automata::AutomataArchitect;
 use empty::EmptyArchitect;
 use room::RoomArchitect;
 
