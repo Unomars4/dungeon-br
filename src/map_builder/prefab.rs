@@ -55,4 +55,31 @@ pub fn apply_prefabs(mb: &mut MapBuilder, rng: &mut RandomNumberGenerator) {
 
         attemtps += 1;
     }
+
+    if let Some(placement) = placement {
+        let string_vec: Vec<char> = FORTRESS
+            .0
+            .chars()
+            .filter(|c| *c != '\r' && *c != '\n')
+            .collect();
+
+        let mut i = 0;
+        for ty in placement.y..placement.y + FORTRESS.2 {
+            for tx in placement.x..placement.x + FORTRESS.1 {
+                let idx = map_idx(tx, ty);
+                let c = string_vec[i];
+
+                match c {
+                    'M' => {
+                        mb.map.tiles[idx] = TileType::Floor;
+                        mb.monster_spawns.push(Point::new(tx, ty));
+                    }
+                    '-' => mb.map.tiles[idx] = TileType::Floor,
+                    '#' => mb.map.tiles[idx] = TileType::Wall,
+                    _ => println!("No idea what to do with this: {}", c),
+                }
+                i += 1;
+            }
+        }
+    }
 }
