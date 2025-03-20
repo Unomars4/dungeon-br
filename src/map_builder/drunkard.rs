@@ -4,6 +4,8 @@ use crate::prelude::*;
 pub struct DrunkardArchitect {}
 
 const STAGGER_DISTANCE: usize = 400;
+const NUM_TILES: usize = (SCREEN_WIDTH * SCREEN_WIDTH) as usize;
+const DESIRED_FLOOR: usize = NUM_TILES / 3;
 
 impl DrunkardArchitect {
     fn drunkard(&mut self, start: &Point, rng: &mut RandomNumberGenerator, map: &mut Map) {
