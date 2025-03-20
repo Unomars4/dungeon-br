@@ -4,6 +4,7 @@ mod room;
 
 use crate::prelude::*;
 use empty::EmptyArchitect;
+use room::RoomArchitect;
 
 trait MapArchitect {
     fn new(&mut self, rng: &mut RandomNumberGenerator) -> MapBuilder;
