@@ -15,7 +15,9 @@ impl MapArchitect for AutomataArchitect {
 
         mb
     }
+}
 
+impl AutomataArchitect {
     fn random_noise(&mut self, rng: &mut RandomNumberGenerator, map: &mut Map) {
         map.tiles.iter_mut().for_each(|t| {
             let roll = rng.range(0, 100);
