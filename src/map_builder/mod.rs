@@ -2,7 +2,7 @@
 use crate::prelude::*;
 
 trait MapArchitect {
-    fn new(&mut self, rng: &mut RandomNumberGenerator) -> Builder;
+    fn new(&mut self, rng: &mut RandomNumberGenerator) -> MapBuilder;
 }
 
 const NUM_ROOMS: usize = 20;
