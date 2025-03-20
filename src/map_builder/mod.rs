@@ -24,7 +24,7 @@ pub struct MapBuilder {
 
 impl MapBuilder {
     pub fn new(rng: &mut RandomNumberGenerator) -> Self {
-        let mut architect = RoomArchitect {};
+        let mut architect = AutomataArchitect {};
         architect.new(rng)
     }
 
