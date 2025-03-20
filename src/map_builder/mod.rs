@@ -1,5 +1,6 @@
 // Handles all the map builder logic
 mod empty;
+mod room;
 
 use crate::prelude::*;
 use empty::EmptyArchitect;
