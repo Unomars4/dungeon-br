@@ -9,6 +9,7 @@ use crate::prelude::*;
 use automata::AutomataArchitect;
 use drunkard::DrunkardArchitect;
 use empty::EmptyArchitect;
+use prefab::apply_prefabs;
 use room::RoomArchitect;
 
 trait MapArchitect {
@@ -32,7 +33,9 @@ impl MapBuilder {
             1 => Box::new(DrunkardArchitect {}),
             _ => Box::new(RoomArchitect {}),
         };
-        architect.new(rng)
+        let mut mb = architect.new(rng);
+        apply_prefabs(&mut mb, rng);
+        mb
     }
 
     fn fill(&mut self, tile: TileType) {
