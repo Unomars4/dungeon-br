@@ -13,6 +13,7 @@ pub struct MapBuilder {
     pub rooms: Vec<Rect>,
     pub player_start: Point,
     pub amulet_start: Point,
+    pub monster_spawns: Vec<Point>,
 }
 
 impl MapBuilder {
@@ -22,6 +23,7 @@ impl MapBuilder {
             rooms: Vec::new(),
             player_start: Point::zero(),
             amulet_start: Point::zero(),
+            monster_spawns: Vec::new(),
         };
         mb.fill(TileType::Wall);
         mb.build_random_rooms(rng);
