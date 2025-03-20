@@ -41,7 +41,7 @@ impl AutomataArchitect {
         neighbors
     }
 
-    fn iteration(&mut self, map: &Map) {
+    fn iteration(&mut self, map: &mut Map) {
         let mut new_tiles = map.tiles.clone();
         for y in 1..SCREEN_HEIGHT - 1 {
             for x in 1..SCREEN_WIDTH - 1 {
