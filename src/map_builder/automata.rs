@@ -1,5 +1,5 @@
 use super::MapArchitect;
-use crate::{map, prelude::*};
+use crate::prelude::*;
 
 pub struct AutomataArchitect {}
 
