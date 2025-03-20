@@ -1,5 +1,6 @@
 // Handles all the map builder logic
 mod automata;
+mod drunkard;
 mod empty;
 mod room;
 
