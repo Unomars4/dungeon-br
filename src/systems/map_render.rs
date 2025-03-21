@@ -27,20 +27,13 @@ pub fn map_render(
                 } else {
                     DARK_GREY
                 };
+                let glyph = theme.tile_to_render(map.tiles[idx]);
                 match map.tiles[idx] {
                     TileType::Floor => {
-                        draw_batch.set(
-                            pt - offset,
-                            ColorPair::new(tint, BLACK),
-                            theme.tile_to_render(TileType::Floor),
-                        );
+                        draw_batch.set(pt - offset, ColorPair::new(tint, BLACK), glyph);
                     }
                     TileType::Wall => {
-                        draw_batch.set(
-                            pt - offset,
-                            ColorPair::new(tint, BLACK),
-                            theme.tile_to_render(TileType::Wall),
-                        );
+                        draw_batch.set(pt - offset, ColorPair::new(tint, BLACK), glyph);
                     }
                 };
             }
