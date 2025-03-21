@@ -48,6 +48,7 @@ impl State {
         resources.insert(mb.map);
         resources.insert(Camera::new(mb.player_start));
         resources.insert(TurnState::AwaitingInput);
+        resources.insert(mb.theme);
         Self {
             ecs,
             resources,
