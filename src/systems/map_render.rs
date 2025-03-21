@@ -1,10 +1,15 @@
 //System that handles all the map rendering
-use crate::{component, prelude::*};
+use crate::prelude::*;
 
 #[system]
 #[read_component(FieldOfView)]
 #[read_component(Player)]
-pub fn map_render(ecs: &SubWorld, #[resource] map: &Map, #[resource] camera: &Camera) {
+pub fn map_render(
+    ecs: &SubWorld,
+    #[resource] map: &Map,
+    #[resource] camera: &Camera,
+    #[resource] theme: &Box<dyn MapTheme>,
+) {
     let mut fov = <&FieldOfView>::query().filter(component::<Player>());
     let player_fov = fov.iter(ecs).nth(0).unwrap();
     let mut draw_batch = DrawBatch::new();
@@ -24,10 +29,18 @@ pub fn map_render(ecs: &SubWorld, #[resource] map: &Map, #[resource] camera: &Ca
                 };
                 match map.tiles[idx] {
                     TileType::Floor => {
-                        draw_batch.set(pt - offset, ColorPair::new(tint, BLACK), to_cp437('.'));
+                        draw_batch.set(
+                            pt - offset,
+                            ColorPair::new(tint, BLACK),
+                            theme.tile_to_render(TileType::Floor),
+                        );
                     }
                     TileType::Wall => {
-                        draw_batch.set(pt - offset, ColorPair::new(tint, BLACK), to_cp437('#'));
+                        draw_batch.set(
+                            pt - offset,
+                            ColorPair::new(tint, BLACK),
+                            theme.tile_to_render(TileType::Wall),
+                        );
                     }
                 };
             }
