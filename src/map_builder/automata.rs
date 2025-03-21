@@ -11,6 +11,7 @@ impl MapArchitect for AutomataArchitect {
             player_start: Point::zero(),
             amulet_start: Point::zero(),
             monster_spawns: Vec::new(),
+            theme: super::themes::DungeonTheme::new(),
         };
         self.random_noise(rng, &mut mb.map);
         for _ in 0..10 {
