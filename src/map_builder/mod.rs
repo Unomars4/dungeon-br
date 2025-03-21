@@ -4,6 +4,7 @@ mod drunkard;
 mod empty;
 mod prefab;
 mod room;
+mod themes;
 
 use crate::prelude::*;
 use automata::AutomataArchitect;
