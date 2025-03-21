@@ -16,6 +16,10 @@ trait MapArchitect {
     fn new(&mut self, rng: &mut RandomNumberGenerator) -> MapBuilder;
 }
 
+pub trait MapTheme: Sync + Send {
+    fn tile_to_render(&self, tile_type: TileType) -> FontCharType;
+}
+
 const NUM_ROOMS: usize = 20;
 
 pub struct MapBuilder {
