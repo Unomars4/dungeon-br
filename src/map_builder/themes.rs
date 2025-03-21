@@ -20,7 +20,7 @@ impl MapTheme for DungeonTheme {
 pub struct ForestTheme {}
 
 impl ForestTheme {
-    fn new() -> Box<dyn MapTheme> {
+    pub fn new() -> Box<dyn MapTheme> {
         Box::new(Self {})
     }
 }

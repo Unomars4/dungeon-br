@@ -11,6 +11,7 @@ use automata::AutomataArchitect;
 use drunkard::DrunkardArchitect;
 use prefab::apply_prefabs;
 use room::RoomArchitect;
+use themes::*;
 
 trait MapArchitect {
     fn new(&mut self, rng: &mut RandomNumberGenerator) -> MapBuilder;
@@ -40,6 +41,11 @@ impl MapBuilder {
         };
         let mut mb = architect.new(rng);
         apply_prefabs(&mut mb, rng);
+
+        mb.theme = match rng.range(0, 2) {
+            0 => DungeonTheme::new(),
+            _ => ForestTheme::new(),
+        };
         mb
     }
 
