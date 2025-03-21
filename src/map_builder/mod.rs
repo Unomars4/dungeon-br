@@ -8,7 +8,6 @@ mod room;
 use crate::prelude::*;
 use automata::AutomataArchitect;
 use drunkard::DrunkardArchitect;
-use empty::EmptyArchitect;
 use prefab::apply_prefabs;
 use room::RoomArchitect;
 
