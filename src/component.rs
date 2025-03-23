@@ -72,3 +72,8 @@ impl FieldOfView {
         }
     }
 }
+
+#[derive(Debug, Clone, PartialEq)]
+pub struct ProvidesHealing {
+    pub amount: i32,
+}
