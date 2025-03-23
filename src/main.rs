@@ -44,7 +44,7 @@ impl State {
         spawn_amulet_of_yala(&mut ecs, mb.amulet_start);
         mb.monster_spawns
             .iter()
-            .for_each(|pos| spawn_entity(&mut ecs, *pos, &mut rng));
+            .for_each(|pos| spawn_entity(&mut ecs, &mut rng, *pos));
         resources.insert(mb.map);
         resources.insert(Camera::new(mb.player_start));
         resources.insert(TurnState::AwaitingInput);
@@ -96,7 +96,7 @@ impl State {
         map_builder
             .monster_spawns
             .iter()
-            .for_each(|pos| spawn_entity(&mut self.ecs, *pos, &mut rng));
+            .for_each(|pos| spawn_entity(&mut self.ecs, &mut rng, *pos));
         self.resources.insert(map_builder.map);
         self.resources.insert(Camera::new(map_builder.player_start));
         self.resources.insert(TurnState::AwaitingInput);
