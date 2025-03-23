@@ -14,6 +14,19 @@ pub fn spawn_healing_potion(ecs: &mut World, pos: Point) {
     ));
 }
 
+pub fn spawn_dungeon_scroll(ecs: &mut World, pos: Point) {
+    ecs.push((
+        Item,
+        Name("Dungeon Map Scroll".to_string()),
+        pos,
+        Render {
+            color: ColorPair::new(BLACK, WHITE),
+            glyph: to_cp437('{'),
+        },
+        ProvidesDungeonMap {},
+    ));
+}
+
 pub fn spawn_amulet_of_yala(ecs: &mut World, pos: Point) {
     ecs.push((
         Item,
