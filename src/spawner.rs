@@ -1,6 +1,19 @@
 //Module handles spawning entities
 pub use crate::prelude::*;
 
+pub fn spawn_healing_potion(ecs: &mut World, pos: Point) {
+    ecs.push((
+        Item,
+        pos,
+        Render {
+            color: ColorPair::new(BLACK, WHITE),
+            glyph: to_cp437('!'),
+        },
+        ProvidesHealing { amount: 15 },
+        Name("Healing Potion".to_string()),
+    ));
+}
+
 pub fn spawn_amulet_of_yala(ecs: &mut World, pos: Point) {
     ecs.push((
         Item,
