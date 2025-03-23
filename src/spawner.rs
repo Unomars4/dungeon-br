@@ -1,6 +1,15 @@
 //Module handles spawning entities
 pub use crate::prelude::*;
 
+pub fn spawn_entity(ecs: &mut World, rng: &mut RandomNumberGenerator, pos: Point) {
+    let roll = rng.roll_dice(1, 6);
+    match roll {
+        1 => spawn_healing_potion(ecs, pos),
+        2 => spawn_dungeon_scroll(ecs, pos),
+        _ => spawn_monster(ecs, pos, rng),
+    }
+}
+
 pub fn spawn_healing_potion(ecs: &mut World, pos: Point) {
     ecs.push((
         Item,
