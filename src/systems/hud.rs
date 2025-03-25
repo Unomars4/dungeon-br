@@ -45,8 +45,8 @@ pub fn hud(ecs: &SubWorld) {
     if y > 3 {
         draw_batch.print_color(
             Point::new(3, 2),
-            "Items carried",
-            ColorPair::new(BLACK, YELLOW),
+            "Items carried:",
+            ColorPair::new(YELLOW, BLACK),
         );
     }
 
