@@ -16,6 +16,15 @@ pub fn player_input(
     let mut players = <(Entity, &Point)>::query().filter(component::<Player>());
     if let Some(key) = key {
         let delta = match key {
+            VirtualKeyCode::Key1 => use_item(0, ecs, commands),
+            VirtualKeyCode::Key2 => use_item(1, ecs, commands),
+            VirtualKeyCode::Key3 => use_item(2, ecs, commands),
+            VirtualKeyCode::Key4 => use_item(3, ecs, commands),
+            VirtualKeyCode::Key5 => use_item(4, ecs, commands),
+            VirtualKeyCode::Key6 => use_item(5, ecs, commands),
+            VirtualKeyCode::Key7 => use_item(6, ecs, commands),
+            VirtualKeyCode::Key8 => use_item(7, ecs, commands),
+            VirtualKeyCode::Key9 => use_item(8, ecs, commands),
             VirtualKeyCode::G => {
                 let (player, player_pos) = players
                     .iter(ecs)
