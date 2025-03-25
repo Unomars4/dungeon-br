@@ -13,7 +13,7 @@ pub fn end_turn(#[resource] turn_state: &mut TurnState, ecs: &SubWorld) {
     let mut new_state = match turn_state {
         TurnState::AwaitingInput => return,
         TurnState::PlayerTurn => TurnState::MonsterTurn,
-        TurnState::MonsterTurn => TurnState::PlayerTurn,
+        TurnState::MonsterTurn => TurnState::AwaitingInput,
         _ => current_state,
     };
 
