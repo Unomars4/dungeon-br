@@ -45,7 +45,7 @@ impl State {
         let exit_idx = mb.map.point2d_to_index(mb.amulet_start);
         mb.map.tiles[exit_idx] = TileType::Exit;
 
-        spawn_level(&mut self.ecs, &mut rng, 0, &mb.monster_spawns);
+        spawn_level(&mut ecs, &mut rng, 0, &mb.monster_spawns);
         resources.insert(mb.map);
         resources.insert(Camera::new(mb.player_start));
         resources.insert(TurnState::AwaitingInput);
