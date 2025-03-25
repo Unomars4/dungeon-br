@@ -1,3 +1,5 @@
+mod template;
+
 use crate::prelude::*;
 use template::Template;
 
