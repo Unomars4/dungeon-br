@@ -83,7 +83,6 @@ pub fn player_input(
                 ));
             }
         }
-
         *turn_state = TurnState::PlayerTurn;
     }
 }

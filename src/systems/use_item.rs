@@ -16,12 +16,10 @@ pub fn use_item(ecs: &mut SubWorld, commands: &mut CommandBuffer, #[resource] ma
                 if let Ok(healing) = item.get_component::<ProvidesHealing>() {
                     healing_to_apply.push((activate.used_by, healing.amount));
                 }
+                if let Ok(_mapper) = item.get_component::<ProvidesDungeonMap>() {
+                    map.revealed_tiles.iter_mut().for_each(|t| *t = true);
+                }
             }
-
-            if let Ok(_mapper) = item.get_component::<ProvidesDungeonMap>() {
-                map.revealed_tiles.iter_mut().for_each(|t| *t = true);
-            }
-
             commands.remove(activate.item);
             commands.remove(*entity);
         });
