@@ -16,6 +16,22 @@ pub fn player_input(
     let mut players = <(Entity, &Point)>::query().filter(component::<Player>());
     if let Some(key) = key {
         let delta = match key {
+            VirtualKeyCode::G => {
+                let (player, player_pos) = players
+                    .iter(ecs)
+                    .find_map(|(entity, pos)| Some((*entity, *pos)))
+                    .unwrap();
+
+                let mut items = <(Entity, &Item, &Point)>::query();
+                items
+                    .iter(ecs)
+                    .filter(|(_entity, _item, &item_pos)| item_pos == player_pos)
+                    .for_each(|(entity, _item, _item_pos)| {
+                        commands.remove_component::<Point>(entity);
+                        commands.add_component(*entity, Carried(player));
+                    });
+                Point::new(0, 0)
+            }
             VirtualKeyCode::Left => Point::new(-1, 0),
             VirtualKeyCode::Right => Point::new(1, 0),
             VirtualKeyCode::Up => Point::new(0, -1),
