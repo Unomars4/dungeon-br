@@ -26,7 +26,6 @@ pub fn hud(ecs: &SubWorld) {
         format!("Health: {}/{} ", player_health.current, player_health.max),
         ColorPair::new(WHITE, RED),
     );
-    draw_batch.submit(10000).expect("Batch error");
 
     let player = <(Entity, &Player)>::query()
         .iter(ecs)
@@ -50,4 +49,6 @@ pub fn hud(ecs: &SubWorld) {
             ColorPair::new(BLACK, YELLOW),
         );
     }
+
+    draw_batch.submit(10000).expect("Batch error");
 }
