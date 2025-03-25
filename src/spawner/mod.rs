@@ -1,5 +1,15 @@
-pub use crate::prelude::*;
+use crate::prelude::*;
 use template::Template;
+
+pub fn spawn_level(
+    ecs: &mut World,
+    rng: &mut RandomNumberGenerator,
+    level: usize,
+    spawn_points: &[Points],
+) {
+    let template = Templates::load();
+    template.spawn_entities(ecs, rng, level, spawn_points);
+}
 
 pub fn spawn_amulet_of_yala(ecs: &mut World, pos: Point) {
     ecs.push((
