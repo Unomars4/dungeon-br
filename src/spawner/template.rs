@@ -15,3 +15,9 @@ pub struct Template {
     pub provides: Option<Vec<(String, i32)>>,
     pub hp: Option<i32>,
 }
+
+#[derive(Clone, Deserialize, Debug, PartialEq)]
+pub enum EntityType {
+    Enemy,
+    Item,
+}
