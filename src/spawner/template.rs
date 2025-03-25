@@ -16,6 +16,54 @@ pub struct Template {
     pub hp: Option<i32>,
 }
 
+impl Template {
+    pub fn spawn_entity(
+        &self,
+        pt: &Point,
+        template: &Template,
+        commmands: &mut legion::systems::CommandBuffer,
+    ) {
+        let entity = commands.push((
+            pt.clone,
+            Render {
+                color: ColorPair::new(WHITE, BLACK),
+                glyph: to_cp437(template.glyph),
+            },
+            Name(template.name.clone()),
+        ));
+
+        match template.entity_type {
+            EntityType::Item => {
+                commands.add_component(entity, Item {});
+            }
+            EntityType::Enemy => {
+                commands.add_component(entity, Enemy {});
+                commands.add_component(entity, FieldOfView::new(6));
+                commands.add_component(entity, ChasingPlayer {});
+                commands.add_component(
+                    entity,
+                    Health {
+                        current: template.hp.unwrap(),
+                        max: template.hp.unwrap(),
+                    },
+                );
+            }
+        }
+
+        if let Some(effects) = &template.provides {
+            effects
+                .iter()
+                .for_each(|(provides, n)| match provides.as_str() {
+                    "Healing" => commands.add_component(entity, ProvidesHealing { amount: n }),
+                    "MagicMap" => commands.add_component(entity, ProvidesDungeonMap {}),
+                    _ => {
+                        println!("Warning: we don't know how to provide {}", provides);
+                    }
+                })
+        }
+    }
+}
+
 #[derive(Clone, Deserialize, Debug, PartialEq)]
 pub enum EntityType {
     Enemy,

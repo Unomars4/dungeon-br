@@ -13,7 +13,7 @@ Templates(
 		name: "Dugeon Map",
 		glyph: '{',
 		levels: [0, 1, 2],
-		provides: Some([("Magic Map", 0)]),
+		provides: Some([("MagicMap", 0)]),
 		frequency: 1
 	),
 	Template (
