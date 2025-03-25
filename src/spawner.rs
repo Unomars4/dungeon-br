@@ -51,7 +51,7 @@ pub fn spawn_amulet_of_yala(ecs: &mut World, pos: Point) {
 
 pub fn spawn_player(ecs: &mut World, pos: Point) {
     ecs.push((
-        Player,
+        Player { map_level: 0 },
         pos,
         Render {
             color: ColorPair::new(WHITE, BLACK),
