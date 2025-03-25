@@ -9,6 +9,7 @@ mod movement;
 mod player_input;
 mod random_movement;
 mod tooltips;
+mod use_item;
 
 use crate::prelude::*;
 
