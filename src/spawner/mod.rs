@@ -1,4 +1,5 @@
-//Module handles spawning entities
+mod template;
+
 pub use crate::prelude::*;
 
 pub fn spawn_entity(ecs: &mut World, rng: &mut RandomNumberGenerator, pos: Point) {
