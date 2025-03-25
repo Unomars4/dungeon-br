@@ -21,3 +21,8 @@ pub enum EntityType {
     Enemy,
     Item,
 }
+
+#[derive(Clone, Deserialize, Debug)]
+pub struct Templates {
+    pub entites: Vec<Template>,
+}
