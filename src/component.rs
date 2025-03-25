@@ -10,7 +10,9 @@ pub struct Render {
 }
 
 #[derive(Debug, Clone, PartialEq, Copy)]
-pub struct Player;
+pub struct Player {
+    pub map_level: i32,
+}
 
 #[derive(Debug, Clone, PartialEq, Copy)]
 pub struct Enemy;
