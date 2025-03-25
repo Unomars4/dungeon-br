@@ -1,4 +1,5 @@
 pub use crate::prelude::*;
+use template::Template;
 
 pub fn spawn_amulet_of_yala(ecs: &mut World, pos: Point) {
     ecs.push((
