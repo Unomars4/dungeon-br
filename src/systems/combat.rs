@@ -1,6 +1,8 @@
 use crate::prelude::*;
 
 #[system]
+#[read_component(Damage)]
+#[read_component(Carried)]
 #[read_component(Player)]
 #[read_component(WantsToAttack)]
 #[write_component(Health)]
