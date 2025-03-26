@@ -4,6 +4,9 @@ use std::collections::HashSet;
 pub use crate::prelude::*;
 
 #[derive(Debug, Clone, PartialEq, Copy)]
+pub struct Damage(pub i32);
+
+#[derive(Debug, Clone, PartialEq, Copy)]
 pub struct Render {
     pub color: ColorPair,
     pub glyph: FontCharType,
