@@ -7,6 +7,9 @@ pub use crate::prelude::*;
 pub struct Damage(pub i32);
 
 #[derive(Debug, Clone, PartialEq, Copy)]
+pub struct Weapon;
+
+#[derive(Debug, Clone, PartialEq, Copy)]
 pub struct Render {
     pub color: ColorPair,
     pub glyph: FontCharType,
